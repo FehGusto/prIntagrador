@@ -1,0 +1,64 @@
+#img-bg{
+  background-image: url(../../assets/img/yellowblack.jpg);
+
+  max-height: 500px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.p-0{
+background-color: black;
+
+}
+
+/* APARIÇÃO DO FORM */
+.col-md-6 {
+overflow: hidden;
+animation: fade 1s;
+}
+
+.col-md-6 .input-block:nth-child(1) {
+animation: move 500ms;
+}
+
+.col-md-6 .form-group .input-block:nth-child(2) {
+animation: move 400ms;
+animation-delay: 100ms;
+animation-fill-mode: backwards;
+}
+.col-md-6  .btn {
+animation: move 400ms;
+animation-delay: 250ms;
+animation-fill-mode: backwards;
+overflow: hidden;
+}
+.col-md-6  .col-md-10 {
+animation: move 400ms;
+animation-delay: 250ms;
+animation-fill-mode: backwards;
+overflow: hidden;
+}
+
+@keyframes move {
+from {
+  opacity: 0;
+  transform: translateX(-35%);
+}
+to {
+  opacity: 1;
+  transform: translateX(0%);
+}
+}
+
+@keyframes fade {
+from {
+  opacity: 0;
+  transform: scale(0.9);
+}
+to {
+  opacity: 1;
+  transform: scale(1);
+}
+}

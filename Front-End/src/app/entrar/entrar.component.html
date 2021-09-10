@@ -1,0 +1,49 @@
+<div class="container-fluid bg-white">
+
+    <div class="row d-flex align-items-center">
+
+        <div class="col-md-6">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+
+                    <h1 class="text-center mb-3 text-dark">𝐏𝐋𝐄𝐊</h1>
+
+                    <div class="form-group">
+                        <label for="usuario">Usuário</label>
+                        <input [(ngModel)]='userLogin.emailUsuario' class="form-control" type="text" name="usuario" id="usuario"
+                            placeholder="Digite o Usuário">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input [(ngModel)]='userLogin.senhaUsuario' class="form-control" type="password" name="senha" id="senha"
+                            placeholder="Digite a Senha">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-warning form-control" (click)='entrar()'>Entrar</button>
+                    </div>
+
+                    <hr class="mt-5 mb-5">
+
+                    <p class="text-center">
+                     Não faz parte da rede 𝗣𝗟𝗘𝗞? <a routerLink='/cadastrar'>𝗖𝗮𝗱𝗮𝘀𝘁𝗿𝗲-𝘀𝗲</a>
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6 p-0 d-flex justify-content-center form">
+          <img src="../../assets/img/yellowblack2.jpg" alt="" width="650px" >
+
+        </div>
+
+    </div>
+
+
+</div>

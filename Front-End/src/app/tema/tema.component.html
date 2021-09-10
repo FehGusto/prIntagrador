@@ -1,0 +1,234 @@
+<app-menu></app-menu>
+<br>
+<br>
+<br>
+<div>
+<h1 class="text-center">Bem vindo(a) ao</h1>
+<h1 class="text-center">Gerenciador de temas!</h1>
+</div>
+<br>
+<br>
+<br>
+<h5 class="text-center" height="50px">AQUI VOCÊ PODE EDITAR, EXCLUIR E TAMBEM CRIAR NOVOS TEMAS PARA SUAS POSTAGENS!</h5>
+<br>
+<br>
+<br>
+<div id="preto">
+  <br>
+<br>
+<br>
+<h1 class="text-center text-white" id="branco" height="50px">O QUE DESEJA FAZER?</h1>
+
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-3 pr-1 d-flex ">
+          <a class="btn btn-warning form-control ml-2" href="#ntm">CRIAR</a>
+        </div>
+
+        <div class="col-md-3 pr-1 d-flex">
+          <a class="btn btn-outline-warning form-control ml-2" href="#tm">EDITAR</a>
+        </div>
+
+      <div class="col-md-3 pr-1 d-flex">
+        <a class="btn btn-outline-warning form-control ml-2" href="#tm">EXCLUIR</a>
+      </div>
+    </div>
+     </div>
+     <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="carouselExampleIndicators" class="carousel slide text-white" data-bs-ride="carousel">
+
+  <h5 class="text-center" height="50px">DICAS</h5>
+  <br>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <h6 class="text-center" height="20px">VOCÊ SEMPRE PODE CLICAR NO LOGO DA PLEK CASO QUEIRA VOLTAR AO INICIO!</h6>
+    </div>
+    <div class="carousel-item">
+      <h6 class="text-center" height="20px">COMPARTILHE SUAS EXPERIENCIAS!</h6>
+    </div>
+    <div class="carousel-item">
+      <h6 class="text-center" height="20px">VOCÊ SEMPRE CLICAR NO LOGO DA PLEK CASO QUEIRA VOLTAR AO INICIO!</h6>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+  </div>
+</div>
+</div>
+
+<div id="preto">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<br>
+<br>
+<br>
+<br id="ntm">
+<br>
+<br>
+<br>
+<br>
+<br >
+</div>
+
+<div class="container-fluid" >
+
+    <div class="row" id="preto">
+
+        <div class="colum-md-12 text-white">
+            <a routerlink='/incio' class="text-white text-left">
+            </a>
+
+            <h1 class="fs-54 text-center" >Novo tema</h1>
+            <br>
+<br>
+<br>
+            <h5 class="fs-18 text-center">Cadastre um novo tema</h5>
+
+            <br>
+
+            <div class="row form-group d-flex justify-content-center mt-4 mb-5">
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-center">
+                    <input [(ngModel)]='tema.tipoUsuario' type="text" class="form-control" id="tipoUsuario"
+                    placeholder="Tipo do usuario">
+                  </div>
+                  <div class="form-group d-flex justify-content-center">
+                            <input [(ngModel)]='tema.tipoDeficiencia' type="text" class="form-control" id="tipoDeficiencia"
+                            placeholder="Tipo de deficiencia">
+                          </div>
+                          <div class="form-group d-flex justify-content-center">
+                            <input [(ngModel)]='tema.experienciaUsuario' type="text" class="form-control" id="experienciaUsuario"
+                            placeholder="Experiencia do usuario">
+                          </div>
+                          <br>
+
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-warning form-control" (click)='cadastrar()'>Cadastrar</button>
+                    </div>
+<br>
+<br>
+<br>
+<br>
+                    <div class="d-flex justify-content-center">
+                      <a class="btn btn-outline-light form-control" href="#tm">Todos os temas</a>
+                  </div>
+                  <br>
+                  <div class="d-flex justify-content-center">
+                    <a class="btn btn-outline-light form-control" routerLink='/inicio'>Voltar ao Inicio</a>
+                </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+         </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <br>
+  <br id="tm">
+
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h1 class="fs-54 text-center">TEMAS</h1>
+            <br>
+            <br>
+            <br>
+
+            <h5 class="text-center">CONSULTE, MODIFIQUE E EXCLUA</h5>
+            <br>
+            <br>
+          </div>
+            <br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+
+            <table class="table col-md-12">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tipo de deficiencia</th>
+                    <th scope="col" class="text-rigth ">Modificacao</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let item of ListaTemas'>
+                    <th>{{item.idTema}}</th>
+                    <td>{{item.tipoDeficiencia}}</td>
+                    <td class="d-flex justtify-content-center-end">
+                        <button class="btn btn-info form-control mr-3" [routerLink]="['/tema-edit', item.idTema]">Editar</button>
+                        <button class="btn btn-danger form-control" [routerLink]="['/tema-delete', item.idTema]">Apagar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+
+              <div class="row">
+                <div class="d-flex justify-content-center">
+                  <a class="btn btn-outline-warning form-control mr-3" href="#ntm">Novo tema</a>
+                <a class="btn btn-warning form-control" routerLink='/inicio'>Voltar ao Inicio</a>
+            </div>
+            <br>
+              <br>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+</div>
+<app-rodape></app-rodape>

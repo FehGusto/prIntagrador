@@ -1,0 +1,154 @@
+<app-menu></app-menu>
+<br>
+<br>
+<br>
+<div>
+<h1 class="text-center">AVISO IMPORTANTE</h1>
+</div>
+<br>
+<br>
+<br>
+<h5 class="text-center" height="50px">ANTES DE FAZER POSTAGENS, SEJA RESPEITOSO! PRECONCEITO E DISCRIMINAÇÃO NÃO SERÃO ACEITOS!</h5>
+<br>
+<br>
+<br>
+  <br>
+<br>
+<div id="preto"  class="container-fluid">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-6">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-white">
+          <h1 class="fs-54">Seja Bem-Vindo(a)!</h1>
+          <h5 class="fs-18">Expresse aqui sua opnião!</h5>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3 mb-5">
+        <div class="col-md-6">
+          <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
+          <a class="btn btn-outline-light" href="#postagens">Ver Postagens</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+      <img src="../../assets/img/yellowblack.jpg" width="500px" height="500px">
+    </div>
+  </div>
+  <br>
+  <br>
+
+</div>
+
+<div class="container mb-5 mt-5" id="postagens">
+
+<nav>
+  <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" type="button" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas postagens</a>
+
+
+    <a (click)='findByIdUser()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" type="button" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas postagens</a>
+
+
+    <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagensPorTema-tab" data-toggle="tab" href="#postagensPorTema" type="button" role="tab" aria-controls="nav-postagensPorTema" aria-selected="false">Postagens por tema</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+  <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+   <br>
+    <div class="card-columns">
+        <div class="card text-center" *ngFor='let item of listaPostagens'>
+          <div class="card-body">
+            <h5 class="card-title m-0">{{item.categoriaEstabelecimento}}</h5>
+            <small class="text-muted ">Tema: {{item.tema.tipoDeficiencia}}</small>
+            <p class="card-text mt-3">{{item.avaliacao}}</p>
+            <p class="card-text"><small class="text-muted">{{item.tipoEstabelecimento}}</small></p>
+
+            <p class="card-text"><small class="text-muted">by: {{item.usuario.nomeCompleto}}</small></p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+   <br>
+    <div class="card-columns">
+      <div class="card text-center" *ngFor='let item of user.postagem'>
+        <div class="card-body">
+          <h5 class="card-title m-0">{{item.categoriaEstabelecimento}}</h5>
+          <small class="text-muted ">Tema: {{item.tema.tipoDeficiencia}}</small>
+          <p class="card-text mt-3">{{item.avaliacao}}</p>
+          <p class="card-text"><small class="text-muted">{{item.tipoEstabelecimento}}</small></p>
+          <a [routerLink]="['/postagem-edit', item.idPost]" class="text-info mr-3" href="">Editar</a>
+          <a [routerLink]="['/postagem-delete', item.idPost]" class="text-danger" href="">Apagar</a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="postagensPorTema" role="tabpanel" aria-labelledby="nav-postagensPorTema-tab">
+    <br>
+    <div class="card-columns" *ngFor='let tema of listaTemas'>
+      <div class="card text-center" *ngFor='let item of tema.postagem'>
+        <div class="card-body">
+          <h5 class="card-title m-0">{{item.categoriaEstabelecimento}}</h5>
+
+          <p class="card-text mt-3">{{item.tipoEstabelecimento}}</p>
+          <p class="card-text"><small class="text-muted">{{item.categoriaEstabelecimento}}</small></p>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog"
+aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <input [(ngModel)]='postagem.categoriaEstabelecimento' type="text" class="form-control" id="titulo" placeholder="Digite o título">
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Texto</label>
+          <textarea  [(ngModel)]='postagem.comentario' class="form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Avaliação</label>
+          <textarea  [(ngModel)]='postagem.avaliacao' class="form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Texto</label>
+          <textarea  [(ngModel)]='postagem.tipoEstabelecimento' class="form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>: </label>
+          <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
+
+          <option *ngFor='let item of listaTemas' value="{{item.idTema}}">{{item.tipoUsuario}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)='publicar()' data-dismiss="modal">Publicar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="top" href="#preto"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+
+<app-rodape></app-rodape>

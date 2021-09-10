@@ -1,0 +1,66 @@
+#preto {
+  background-color: black;
+}
+#preta {
+  color: black;
+}
+
+.dp-menu {
+  --cor-fundo: rgb(0, 0, 0);
+  --cor-hover: rgb(251, 255, 0);
+  --cor-primaria: rgb(255, 255, 255);
+}
+
+.dp-menu ul {
+  list-style-type: none;
+  padding: 0;
+  border-radius: 10%;
+}
+
+.dp-menu ul {
+  background-color: var(--cor-fundo);
+}
+
+
+
+.dp-menu ul li {
+  display: inline;
+  position: relative;
+  border-radius: 10%;
+}
+
+.dp-menu ul li a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+
+  padding: 8px;
+  transition: background 5s;
+
+}
+
+.dp-menu ul li a:hover {
+  color: var(--cor-hover);
+  border-radius: 20%;
+
+}
+
+/*sub menu*/
+.dp-menu ul ul {
+  display: none;
+  right: 0;
+  position: absolute;
+}
+
+.dp-menu ul li:hover ul {
+  display: block;
+}
+
+.dp-menu ul ul {
+  width: 200px
+}
+
+.dp-menu ul ul li a {
+  display: block;
+}
+
+

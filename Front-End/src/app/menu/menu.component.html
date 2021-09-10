@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg"  id="preto">
+  <div class="container-fluid">
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span  class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav" id="preto">
+
+
+      <li class="navbar-nav ml-auto d-flex align-items-center">
+
+          <a id="preta">........................   .....................</a>
+
+        <a routerLink="/inicio"><img src="../../assets/img/yellowblack.jpg" alt="" width="40px" ></a>
+      </li>
+      <ul class="navbar-nav ml-auto d-flex align-items-center" >
+
+        <li class="nav-item pr-0">
+          <a class="nav-link">.</a>
+        </li>
+
+        <div class="dp-menu">
+          <ul>
+
+              <li><a class="btn text-warningbtn text-warning">{{nome}}</a><a ><img src="{{foto}}" alt="Imagem User "
+                width="50px" height="50px" class="img rounded-circle"></a>
+                  <ul>
+                    <li>
+
+                    </li>
+                      <li><a class="btn text-warningbtn "  href="#">ESTABELECIMENTOS</a></li>
+                      <li><a class="btn text-warningbtn " href="#series">MINHAS POSTAGENS </a></li>
+                      <li><a class="btn text-warningbtn " routerLink="/contato">SIGA NAS REDES</a></li>
+
+                      <li>
+                        <a class="btn text-warningbtn text-danger" (click)='sair()'>Sair
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
